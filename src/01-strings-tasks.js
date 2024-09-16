@@ -35,7 +35,7 @@ function concatenateStrings(value1, value2) {
  *   ''      => 0
  */
 function getStringLength(value) {
-return value.length;
+  return value.length;
 }
 
 /**
@@ -204,8 +204,8 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(width, height) {
-    let dashStr = '─'.repeat(width - 2);
-    return `┌${dashStr}┐\n` + `│${' '.repeat(width - 2)}│\n`.repeat(height - 2) + `└${dashStr}┘\n`;
+  const dashStr = '─'.repeat(width - 2);
+  return `┌${dashStr}┐\n${`│${' '.repeat(width - 2)}│\n`.repeat(height - 2)}└${dashStr}┘\n`;
 }
 
 
@@ -226,9 +226,7 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
-  return str.replace(/[a-zA-Z]/g, function (c) {
-      return String.fromCharCode((c <= "Z" ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26);
-  });
+  return str.replace(/[a-zA-Z]/g, (c) => String.fromCharCode((c <= 'Z' ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26));
 }
 
 
@@ -246,7 +244,7 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-  return value ? typeof value.valueOf() == 'string' : false;
+  return value ? typeof value.valueOf() === 'string' : false;
 }
 
 
@@ -275,8 +273,8 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-  let cards = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
-  let suits = ['♣', '♦', '♥', '♠'];
+  const cards = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+  const suits = ['♣', '♦', '♥', '♠'];
   return cards.indexOf(value.slice(0, -1)) + suits.indexOf(value.slice(-1)) * cards.length;
 }
 
